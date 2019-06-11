@@ -14,41 +14,24 @@ public protocol AlertHostControllerDelegate: class {
 
 public protocol AlertController {
     
-    func showWriteCodeModal(delegate: WriteCodeAlertDelegate, typeAlert : WriteCodeAlertType) -> WriteCodeAlert
+    func showFilterModal(delegate: FilterViewDelegate, model: [BaseGenerModel]) -> FilterView
 }
 
 public extension AlertController where Self: UIViewController {
     
     //AlertAboutView
-    @discardableResult func showWriteCodeModal(delegate: WriteCodeAlertDelegate, typeAlert : WriteCodeAlertType) -> WriteCodeAlert {
-        let modal = WriteCodeAlert()
-        modal.typeAlert = typeAlert
+    @discardableResult func showFilterModal(delegate: FilterViewDelegate, model: [BaseGenerModel]) -> FilterView {
+        let modal = FilterView()
         modal.delegate = delegate
-        //modal.configView()
-        modal.imageCodeBarStr = ""
+        modal.configure(model: model)
         modal.translatesAutoresizingMaskIntoConstraints = false
-        
         
         let hostViewController = AlertHostController()
         hostViewController.isEnabledTapBackground = true
         hostViewController.view.addSubview(modal)
         hostViewController.delegate = modal
         
-        var sizeModal = CGSize.zero
-        if Constants.UrlServices.environment == .client {
-            
-        }
-        else {
-            //sizeModal = CGSize(width: 739, height: 337)
-            sizeModal = typeAlert.iPadSizeAlert
-        }
-        
-        if Constants.UrlServices.environment == .client {
-            setConstraints(alert: modal, containerView: hostViewController.view)
-        }
-        else {
-            setConstraintsForAlert(alert: modal, containerView: hostViewController.view, size: sizeModal, isTop: true)
-        }
+        setConstraints(alert: modal, containerView: hostViewController.view)
         
         self.present(hostViewController, animated: true, completion: nil)
         
@@ -56,12 +39,11 @@ public extension AlertController where Self: UIViewController {
 
     }
     
-    // AlertMessageInfo
-    
+    // FilterView
     func setConstraints(alert: UIView, containerView: UIView, size: CGSize? = nil, isTop: Bool? = nil) {
         
         let width : CGFloat = size != nil ? size!.width : Constants.devicesWidth.widthDevice - 44
-        let height: CGFloat = size != nil ? size!.height : 350
+        let height: CGFloat = size != nil ? size!.height : 450
         
         
         let widthConstraint = NSLayoutConstraint(

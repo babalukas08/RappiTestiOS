@@ -12,6 +12,10 @@ import UIKit
 public enum TypographyStyle: String {
     //
     case txtHeaderGeneral
+    case txtHeaderGeneralHeader
+    case txtHeaderGeneralFilter
+    case txtHeaderGeneralBlue
+    case txtHeaderGeneralWhiteOpacy
     case txtHeaderGeneralBlack
     case txtHelveticaLight
     case txtHelveticaLightBlack
@@ -319,7 +323,50 @@ public enum TypographyStyle: String {
             
         case .txtHeaderGeneral:
             let color = ColorPallete.white.asColor()
-            let size = SizesPallete.TextSize.text17.rawValue
+            let size = SizesPallete.TextSize.txtBase15.rawValue
+            let font = FontPallete.HelveticaB.asFont(ofSize: CGFloat(size))
+            
+            var textStyle = TextStyle()
+            textStyle.color = color
+            textStyle.size = size
+            textStyle.font = font
+            return textStyle
+        case .txtHeaderGeneralHeader:
+            let color = ColorPallete.bgBaseView.asColor()
+            let size = SizesPallete.TextSize.txtBase15.rawValue
+            let font = FontPallete.HelveticaB.asFont(ofSize: CGFloat(size))
+            
+            var textStyle = TextStyle()
+            textStyle.color = color
+            textStyle.size = size
+            textStyle.font = font
+            return textStyle
+        
+        case .txtHeaderGeneralBlue:
+            let color = ColorPallete.bgBaseView.asColor()
+            let size = SizesPallete.TextSize.txtBase7.rawValue
+            let font = FontPallete.HelveticaB.asFont(ofSize: CGFloat(size))
+            
+            var textStyle = TextStyle()
+            textStyle.color = color
+            textStyle.size = size
+            textStyle.font = font
+            return textStyle
+            
+        case .txtHeaderGeneralFilter:
+            let color = ColorPallete.white.asColor()
+            let size = SizesPallete.TextSize.txtBase7.rawValue
+            let font = FontPallete.HelveticaB.asFont(ofSize: CGFloat(size))
+            
+            var textStyle = TextStyle()
+            textStyle.color = color
+            textStyle.size = size
+            textStyle.font = font
+            return textStyle
+            
+        case .txtHeaderGeneralWhiteOpacy:
+            let color = ColorPallete.white.asColor(withAlpha: 0.7)
+            let size = SizesPallete.TextSize.textSS.rawValue
             let font = FontPallete.HelveticaB.asFont(ofSize: CGFloat(size))
             
             var textStyle = TextStyle()

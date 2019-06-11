@@ -29,6 +29,7 @@ public enum ColorPallete: String {
     case grayPrice = "666666"
     case grayLayer = "979797"
     case grayFooter = "ededed"
+    case bgBaseView = "181027"
     public  func asColor() -> UIColor {
         return hexStringToUIColor(hex: self.rawValue)
     }

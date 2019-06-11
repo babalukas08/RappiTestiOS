@@ -9,64 +9,71 @@ public enum environmentType {
 
 struct Constants {
     
-    struct LoginStrings {
-        static let loginTitle = "Iniciar sesión"
-        static let loginDescription = "¿Eres nuevo con nosotros?"
-        static let loginActionLabel = "Crea una cuenta"
-        static let loginActionButton = "Iniciar sesión"
-        static let loginFBButton = "Iniciar sesión usando Facebook"
-        //register
-        static let registerTitle = "Crear cuenta"
-        static let registerDescription = "¿Ya una tienes cuenta?"
-        static let registerActionLabel = "Inicia sesión"
-        static let registerActionButton = "Crear cuenta"
-        static let registerFBButton = "Crear cuenta usando Facebook"
-    }
     
     struct DeviceToken {
         static let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
     }
-    struct PayPalKeys {
-        static let urlSheme = "com.alphasoluciones.go.payments"
-        //        static let tokenPath = "http://172.16.0.60:5000/tk"//"https://braintree-sample-merchant.herokuapp.com/client_token"
-        //        static let postPurchase = "http://172.16.0.60:5000/checkout"
-        static let tokenPath = "http://alphasoluciones.net:9020/tk"//"https://braintree-sample-merchant.herokuapp.com/client_token"
-        static let postPurchase = "http://alphasoluciones.net:9020/checkout"
-        static let clientTokenSample = "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiIyMWFkM2E2MTg3OThiMzE4MWIxYzQ3MmQ0MTUwYmE4ODk1NTY1MjFiODA2NjI1M2ZlNjc0YTU1ZTdmN2U2MWI1fGNyZWF0ZWRfYXQ9MjAxOS0wNS0wOFQxNToxMzowMS40MTczMjAyMTIrMDAwMFx1MDAyNm1lcmNoYW50X2lkPTM0OHBrOWNnZjNiZ3l3MmJcdTAwMjZwdWJsaWNfa2V5PTJuMjQ3ZHY4OWJxOXZtcHIiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvMzQ4cGs5Y2dmM2JneXcyYi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJncmFwaFFMIjp7InVybCI6Imh0dHBzOi8vcGF5bWVudHMuc2FuZGJveC5icmFpbnRyZWUtYXBpLmNvbS9ncmFwaHFsIiwiZGF0ZSI6IjIwMTgtMDUtMDgifSwiY2hhbGxlbmdlcyI6W10sImVudmlyb25tZW50Ijoic2FuZGJveCIsImNsaWVudEFwaVVybCI6Imh0dHBzOi8vYXBpLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb206NDQzL21lcmNoYW50cy8zNDhwazljZ2YzYmd5dzJiL2NsaWVudF9hcGkiLCJhc3NldHNVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImF1dGhVcmwiOiJodHRwczovL2F1dGgudmVubW8uc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFuYWx5dGljcyI6eyJ1cmwiOiJodHRwczovL29yaWdpbi1hbmFseXRpY3Mtc2FuZC5zYW5kYm94LmJyYWludHJlZS1hcGkuY29tLzM0OHBrOWNnZjNiZ3l3MmIifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiQWNtZSBXaWRnZXRzLCBMdGQuIChTYW5kYm94KSIsImNsaWVudElkIjpudWxsLCJwcml2YWN5VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3BwIiwidXNlckFncmVlbWVudFVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS90b3MiLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjp0cnVlLCJlbnZpcm9ubWVudCI6Im9mZmxpbmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJtYXN0ZXJjbGllbnQzIiwiYmlsbGluZ0FncmVlbWVudHNFbmFibGVkIjp0cnVlLCJtZXJjaGFudEFjY291bnRJZCI6ImFjbWV3aWRnZXRzbHRkc2FuZGJveCIsImN1cnJlbmN5SXNvQ29kZSI6IlVTRCJ9LCJtZXJjaGFudElkIjoiMzQ4cGs5Y2dmM2JneXcyYiIsInZlbm1vIjoib2ZmIn0="
-    }
     
-    struct ApisKeys {
-        
+    struct Catalogs {
+        static let dataCatalogs = [CatalogsType.topMovie, CatalogsType.topTv, CatalogsType.popularMovie, CatalogsType.popularTv, CatalogsType.upCommingMovie]
+        static let dataGenders = [TypeItem.movie, TypeItem.serie]
     }
     
     struct UrlServices {
+        static let api_Key_tmdb = "d21684866ab7c4cdf0891ef667519e53"
+        static let BaseUrl = "https://api.themoviedb.org/3"
+        static let BasePathImage = "http://image.tmdb.org/t/p/w500"
+        static let GetPopularTv = UrlServices.BaseUrl + WSMethods.Tv + WSMethods.Popular + ParamsWS.CategorieParams
+        static let GetTopRatedTv = UrlServices.BaseUrl + WSMethods.Tv + WSMethods.TopRated + ParamsWS.CategorieParams
         
-        #if VENDEDORVERSION
-        static let urlBase = "http://10.253.15.5:8080/eph_loftdigital"
-        static let environment: environmentType = .vendedor
-        #elseif IPADALPHAVERSION
-        static let urlBase = "https://appd.elpalaciodehierro.com:9443/eph_loftdigital"
-        static let environment: environmentType = .vendedor
-        #else
-        static let urlBase = "https://appd.elpalaciodehierro.com:9443/eph_loftdigital"
-        static let environment: environmentType = .client
-        #endif
+        static let GetPopularMovie = UrlServices.BaseUrl + WSMethods.Movie + WSMethods.Popular + ParamsWS.CategorieParams
+        static let GetTopRatedMovie = UrlServices.BaseUrl + WSMethods.Movie + WSMethods.TopRated + ParamsWS.CategorieParams
+        static let GetUpcomingMovie = UrlServices.BaseUrl + WSMethods.Movie + WSMethods.Upcoming + ParamsWS.CategorieParams
+        static let GetConfigImage = UrlServices.BaseUrl + WSMethods.ConfigImage + ParamsWS.ApiKey
         
+        // Get Gener Movie
+        static let GetGenerMovie = UrlServices.BaseUrl + WSMethods.Gener + WSMethods.Movie + WSMethods.List + ParamsWS.Params
         
-        static let Content_TypeToken = "application/x-www-form-urlencoded"
+        // Get Gener Serie
+        static let GetGenerSerie = UrlServices.BaseUrl + WSMethods.Gener + WSMethods.Tv + WSMethods.List + ParamsWS.Params
+        
         static let Content_Type = "application/json; charset=utf-8"
-        static let Authorization = "OAuth %@"
-        static let plataform = "iOS"
-        static let GENEXUS_AGENT = "SmartDevice Application"
-        static let BodyToken = "client_id=e4322c795fed4e2dabdbd525e7a1decc&granttype=password&scope=FullControl&username=eph_loftdigital&password=3ph_n4v1d4d3s"
+        
+        static let BasePathMovie = UrlServices.BaseUrl + WSMethods.Movie
+        static let BasePathTV = UrlServices.BaseUrl + WSMethods.Tv
+        static let BasePathVideo = WSMethods.Video +  ParamsWS.ApiKey + ParamsWS.LanguageVideo
+        static let BasePathSimilar  = WSMethods.SimilarMovie +  ParamsWS.ApiKey + ParamsWS.Language + ParamsWS.Page + "1"
     }
     
-    struct APIMethods {
-        static let AccessToken = "/oauth/access_token"
-        static let ProductInfo = "/rest/services/productInfo"
-        static let AddList = "/rest/services/addList"
-        static let SendEmail = "/rest/services/sendEmail"
-        static let newBag = "/newBag"
+    struct ParamsWS {
+        static let ApiKey = "?api_key=\(UrlServices.api_Key_tmdb)"
+        static let Language = "&language=es-MX"
+        static let LanguageVideo = "&language=en-US"
+        static let Page = "&page="
+        static let Query = "&query="
+        static let CategorieParams = ParamsWS.ApiKey + ParamsWS.Language + ParamsWS.Page
+        static let Params = ParamsWS.ApiKey + ParamsWS.Language
+        static let MultiSearchParams = ParamsWS.CategorieParams + ParamsWS.Query
+    }
+    
+    struct WSMethods {
+        static let Tv = "/tv"
+        static let Movie = "/movie"
+        static let MultiSearch = "/search/multi"
+        static let SimilarMovie = "/similar"
+        static let Video = "/videos"
+        static let Popular = "/popular"
+        static let TopRated = "/top_rated"
+        static let Upcoming = "/upcoming"
+        static let ConfigImage = "/configuration"
+        static let Gener = "/genre"
+        static let List = "/list"
+    }
+    
+    struct CategoriesPaths {
+        static let CategoriesData : [Categories: String] = [Categories.Popular: UrlServices.GetPopularMovie, Categories.TopRated: UrlServices.GetTopRatedMovie, Categories.Upcoming: UrlServices.GetUpcomingMovie]
+        
+        static let CategoriesRealmPaths : [Categories: String] = [Categories.Popular: KeysRealmObject.RealmPopularMovies, Categories.TopRated: KeysRealmObject.RealmTopRatedMovies, Categories.Upcoming: KeysRealmObject.RealmUpcomingMovies]
     }
     
     
@@ -85,22 +92,12 @@ struct Constants {
     
     struct GlobalMessage {
         struct Error {
-            static let errorMessage = "Inténtalo en un momento."
+            static let errorMessage = "Servicio no disponible"
             static let errorDetailProduct = "Producto no encontrado, intenta con otro"
-            static let errorMessageEcomm = "Lo sentimos, los artículos escaneados no se pudieron agregar al carrito, por favor búscalos directamente en El Palacio de los Juguetes."
         }
         
         struct Connection {
             static let internetConnection = "Se requiere conexión a Internet"
-        }
-        
-        struct WebServiceError {
-            static let wsError = "Inténtalo en un momento."
-            static let wsSendEmilOk = "E-mail enviado"
-            static let wsSendEmilError = "Error al enviar E-mail"
-            static let wsSendSMSOk = "Mensaje enviado"
-            static let wsSendSMSError = "Error al enviar mensaje"
-            static let wsServicioNo = "Servicio no disponible"
         }
         
     }
@@ -123,23 +120,18 @@ struct Constants {
     
     struct KeysRealmObject {
         static let CacheManagerRealm = "CacheManager"
-        // Current Token
-        static let RealmAccessTokenModel = "RealmAccessTokenModel"
-        // Current RealmCurrentProducts
-        static let RealmCurrentStorageModels = "RealmCurrentStorageModels"
-        // Current RealmDataStorage
-        static let RealmCurrentStorage = "RealmCurrentStorage"
-        // Current RealmCurrentProduct
-        static let RealmCurrentProduct = "RealmCurrentProduct"
-        
-        //Current ModelStorage
-        static let RealmCurrentModelStorage = "RealmCurrentModelStorage"
-
-    }
-    
-    struct Samples {
-        static let detailModel = DetailProductModel(imageUrl: "https://media.elpalaciodehierro.com/media/catalog/product/cache/1/image/1800x1800/9df78eab33525d08d6e5fb8d27136e95/3/6/36157882_palaciodehierro_sofacamakironrojo_liz_vista_1.jpg", price: "$ 27,490.00", titleProduct: "SILLÓN", descProduct: "Muebles Liz Sofá cama tapizado en tela rojo, puede convertirse en una cama Queen Size. Modelo: KIRON SC ROJO Material: Madera estructurada Herraje metálico Espuma Delcron Tela. Estilo: Contempor Alto: 78 Cm. Prof: 90 Cm. Ancho: 222 Cm. Tipo salas: Sillones Incluye: 2 Riñoneras decorativas en color beige. Descripción corta: Sillón", sku: "123456789", idLetterModel: "09")
-        static let dataProducts = [Samples.detailModel,Samples.detailModel,Samples.detailModel,Samples.detailModel,Samples.detailModel,Samples.detailModel]
+        static let RealmConfigImages = "ConfigImages"
+        static let RealmPopularMovies = "PopularMovies"
+        static let RealmTopRatedMovies = "TopRatedMovies"
+        static let RealmPopularTv = "PopularTV"
+        static let RealmTopRatedTv = "TopRatedTV"
+        static let RealmUpcomingMovies = "UpcomingMovies"
+        static let RealmMovieModel = "MoviesModel"
+        // Catalog Downloads
+        static let RealmCatalogDownload = "RealmCatalogDownload"
+        // Genders
+        static let RealmGendersMovie = "RealmGendersMovie"
+        static let RealmGendersSerie = "RealmGendersSerie"
     }
     
     
@@ -159,4 +151,10 @@ enum TypeDateString: String {
 public enum ServicesManagerResult {
     case success
     case failure(message : String)
+}
+
+enum Categories: String {
+    case Popular
+    case TopRated
+    case Upcoming
 }

@@ -73,422 +73,20 @@ final class DataSourceManager {
         }
     }
     
-    static func removeLocalCache(typeDelete: TypeDeleteAll, productDelete: DetailProductModel? = nil, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        switch typeDelete {
-        case .local:
-            self.deleteCurrentModelStorage { (result) in
-                switch result {
-                case .success:
-                    self.deleteCurrentProductDetail(completion: { (end) in
-                        completion(end)
-                    })
-                case .failure(let message):
-                    completion(.failure(message: message))
-                }
-            }
-        case .list:
-            guard let model = self.getModelStorage() else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            guard let register = model.registerClient else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            register.productsList.removeAll()
-            register.products.removeAll()
-            model.registerClient = register
-            
-            self.saveModelStorage(model: model) { (result) in
-                switch result {
-                case .success:
-                    self.updateModelsStorage(model: model, completion: { (response) in
-                        completion(response)
-                    })
-                case .failure(let message):
-                    completion(.failure(message: message))
-                }
-            }
-        case .oneProduct:
-            guard let model = self.getModelStorage() else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            guard let register = model.registerClient else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            guard let product = productDelete else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            if let index = self.getIndexDetailProduct(model: product) {
-                register.productsList.remove(at: index)
-                register.products.remove(at: index)
-                model.registerClient = register
-                
-                self.saveModelStorage(model: model) { (result) in
-                    switch result {
-                    case .success:
-                        self.updateModelsStorage(model: model, completion: { (response) in
-                            completion(response)
-                        })
-                    case .failure(let message):
-                        completion(.failure(message: message))
-                    }
-                }
-            }
-        }
-        
-    }
-    
     // MARK: - Model Storage
-    // Save Current Model Storage by current client
-    static func saveModelStorage(model: ModelStorage, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        //RealmCurrentModelStorage
-        let result = DataSourceManager.saveCacheModel(Constants.KeysRealmObject.RealmCurrentModelStorage, value: model.toJSONString() ?? "")
-        switch result {
-        case .success:
-            completion(.success)
-        case .failure(let message):
-            completion(.failure(message: message))
-        }
-    }
-    
-    // Get Current Model Storage
-    static func getModelStorage() -> ModelStorage? {
-        
-        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: Constants.KeysRealmObject.RealmCurrentModelStorage, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
-            return nil
-        }
-        
-        guard let model : ModelStorage = Mapper<ModelStorage>().map(JSONString: dataJsonString) else {
-            return nil
-        }
-        
-        return model
-        
-    }
-    
-    static func updateRegisterModel(by model: RequestCreateShoppingCartModel,completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        guard let modelStorage = DataSourceManager.getModelStorage() else {
-            completion(.failure(message: "Error"))
-            return
-        }
-        
-        modelStorage.registerClient = model
-        
-        
-        DataSourceManager.saveModelStorage(model: modelStorage) { (result) in
-                completion(result)
-        }
-        
-    }
-    
-    
-    // Delete Current ModelStorage
-    static func deleteCurrentModelStorage(completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        let result = self.removeCacheModel(Constants.KeysRealmObject.RealmCurrentModelStorage)
-        switch result {
-        case .success:
-            completion(.success)
-        case .failure(let message):
-            completion(.failure(message: message))
-        }
-    }
-    
-    // this func get the Shopping Model for Request
-    static func getModelRequest() -> RequestCreateShoppingCartModel? {
-        guard let model = self.getModelStorage()?.registerClient else {
-            return nil
-        }
-        
-        guard let product = self.getDetailProduct() else {
-            return model
-        }
-        
-        model.addProductToCart(model: product)
-        
-        return model
-    }
-    
-    
-    
-    // this func get current ListCode for update List
-    static func getCurrentListCode() -> String {
-        guard let model = getModelStorage() else {
-            return ""
-        }
-        
-        return model.barcode.isEmpty ? "" : model.barcode
-    }
-    
-    // This func is for update the parameter 'listCode' for update list
-    static func updateModelStorage(by listCode: String, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        
-        guard let model = DataSourceManager.getModelStorage() else {
-            completion(.failure(message: "Error al actualizar listCode"))
-            return
-        }
-        
-        model.barcode = listCode
-        
-        if let modelRegister = self.getModelRequest() {
-            modelRegister.listcode = listCode
-            model.registerClient = modelRegister
-        }
-        
-        DataSourceManager.saveModelStorage(model: model) { (result) in
-            switch result {
-            case .success:
-                DataSourceManager.updateModelsStorage(model: model, completion: { (result) in
-                    completion(result)
-                })
-            case .failure(let message):
-                completion(.failure(message: message))
-            }
-        }
-    }
-    
-    // This func update the Model Storage after response success
-    static func updateModelStorage(completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        
-        guard let model = DataSourceManager.getModelStorage() else {
-            completion(.failure(message: "Error al actualizar listCode"))
-            return
-        }
-        
-        if let modelRegister = self.getModelRequest() {
-            model.registerClient = modelRegister
-        }
-        
-        DataSourceManager.saveModelStorage(model: model) { (result) in
-            switch result {
-            case .success:
-                // this line update the DataHistoryModel
-                self.updateModelsStorage(model: model, completion: { (response) in
-                    completion(response)
-                })
-            case .failure(let message):
-                completion(.failure(message: message))
-            }
-        }
-    }
-    
-    static func getDetailProducts() -> [DetailProductModel] {
-        guard let model = self.getModelStorage()?.registerClient?.productsList else {
-            return []
-        }
-        
-        return model
-    }
-    
-    static func setDetailModel(row: Int, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        guard let model = DataSourceManager.getModelRequest()?.productsList else {
-            completion(.failure(message: "Error"))
-            return
-        }
-        
-        DataSourceManager.saveCurrentDetailProduct(model: model[row]) { (result) in
-            completion(result)
-        }
-    }
-    
-    static func setHistory(row: Int, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        let modal = DataSourceManager.getDataStorage()
-        
-        DataSourceManager.saveModelStorage(model: modal[row]) { (result) in
-            completion(result)
-        }
-    }
-    
-    
-    // MARK: - Detail Product
-    // This is for save current Detail Product for Response
-    static func saveCurrentDetailProduct(model: DetailProductModel, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        let result = DataSourceManager.saveCacheModel(Constants.KeysRealmObject.RealmCurrentProduct, value: model.toJSONString() ?? "")
-        switch result {
-        case .success:
-            completion(.success)
-        case .failure(let message):
-            completion(.failure(message: message))
-        }
-    }
-    
-    // This get Detail Current Product
-    static func getDetailProduct() -> DetailProductModel? {
-        
-        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: Constants.KeysRealmObject.RealmCurrentProduct, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
-            return nil
-        }
-        
-        guard let model : DetailProductModel = Mapper<DetailProductModel>().map(JSONString: dataJsonString) else {
-            return nil
-        }
-        
-        return model
-        
-    }
-    
-    // Delete Current Product Detail
-    static func deleteCurrentProductDetail(completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        let result = self.removeCacheModel(Constants.KeysRealmObject.RealmCurrentProduct)
-        switch result {
-        case .success:
-            completion(.success)
-        case .failure(let message):
-            completion(.failure(message: message))
-        }
-    }
-    
-    static func updateQuantity(qty: Int, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        guard let product = self.getDetailProduct() else {
-            return
-        }
-        
-        product.qty = qty
-        
-        self.saveCurrentDetailProduct(model: product) { (result) in
-            completion(result)
-        }
-    }
-    
-    static func updateQuantityby(model: DetailProductModel, qty: Int, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        if let index = self.getIndexDetailProduct(model: model) {
-            
-            guard let model = self.getModelStorage() else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            guard let register = model.registerClient else {
-                completion(.failure(message: "Error"))
-                return
-            }
-            
-            register.products[index].qty = qty
-            register.productsList[index].qty = qty
-            model.registerClient = register
-            
-            self.saveModelStorage(model: model) { (result) in
-                switch result {
-                case .success:
-                    self.updateModelsStorage(model: model, completion: { (response) in
-                        completion(response)
-                    })
-                case .failure(let message):
-                    completion(.failure(message: message))
-                }
-            }
 
-        }
-    }
+//    static func getIndexModelStorage(model: ModelStorage) -> Int? {
+//        let data = self.getDataStorage()
+//        guard let index = data.index(where: { (item) -> Bool in
+//            model.barcode == item.barcode
+//        }) else {
+//            return nil
+//        }
+//
+//        return index
+//    }
     
-    
-    // MARK: - DataHistoryModel
-    // This function save the data for history clients or carts by clients
-    static func saveDataHistory(dataHistory: DataHistoryModel, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        
-        let result = DataSourceManager.saveCacheModel(Constants.KeysRealmObject.RealmCurrentStorage, value: dataHistory.toJSONString() ?? "")
-        switch result {
-        case .success:
-            completion(.success)
-        case .failure(let message):
-            completion(.failure(message: message))
-        }
-        
-    }
-    
-    // This Function get the data for history clients
-    static func getDataStorageModel() -> DataHistoryModel? {
-        
-        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: Constants.KeysRealmObject.RealmCurrentStorage, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
-            return nil
-        }
-        
-        guard let model : DataHistoryModel = Mapper<DataHistoryModel>().map(JSONString: dataJsonString) else {
-            return nil
-        }
-        
-        return model
-        
-    }
-    
-    static func getDataStorage() -> [ModelStorage] {
-        guard let data = self.getDataStorageModel() else {
-            return []
-        }
-        
-        
-        return data.data
-    }
-    
-    static func getIndexModelStorage(model: ModelStorage) -> Int? {
-        let data = self.getDataStorage()
-        guard let index = data.index(where: { (item) -> Bool in
-            model.barcode == item.barcode
-        }) else {
-            return nil
-        }
-        
-        return index
-    }
-    
-    static func getIndexDetailProduct(model: DetailProductModel) -> Int? {
-        let data = self.getDetailProducts()
-        guard let index = data.index(where: { (item) -> Bool in
-            model.sku == item.sku
-        }) else {
-            return nil
-        }
-        
-        return index
-    }
-    
-    
-    // This func is for add/update the DataHistory Model
-    static func updateModelsStorage(model: ModelStorage, completion: @escaping (_ result: ServicesManagerResult) -> Void) {
-        
-        var data = self.getDataStorage()
-
-        if let storage = self.getDataStorageModel() {
-        
-            // if exist the model on the current update list
-            if let index = getIndexModelStorage(model: model) {
-                data[index] = model
-            }
-            else { // if current model not exist on data append new model
-                data.append(model)
-            }
-            
-            // this is for update all data history Model
-            storage.data = data
-            storage.dateSave = Date().formattedDate()
-            
-            self.saveDataHistory(dataHistory: storage) { (result) in
-                completion(result)
-            }
-        }
-        else {
-            // add model for first time
-            data.append(model)
-            
-            // add the new DataHistory
-            let modelHistory = DataHistoryModel(dateSave: Date().formattedDate(), data: data)
-            
-            self.saveDataHistory(dataHistory: modelHistory) { (result) in
-                completion(result)
-            }
-        }
-        
-    }
-    
-    
+   
     // MARK: - This methods is fors Samples
     static func getSampleAgrupador() -> String {
         let code = String(repeating: "9", count: 4) + DataSourceManager.randomString(length: 8)
@@ -514,15 +112,9 @@ final class DataSourceManager {
         var headers = [String: String]()
         
         // add Keys to Headers
-        headers["Content-Type"] = Constants.UrlServices.Content_TypeToken
-        
-        if !withToken {
-            headers["Content-Type"] = Constants.UrlServices.Content_Type
-            headers["Accept"] = Constants.UrlServices.Content_Type
-            headers["GENEXUS-AGENT"] = Constants.UrlServices.GENEXUS_AGENT
-            headers["Authorization"] = DataSourceManager.getAccessToken()
-        }
-        
+        headers["Content-Type"] = Constants.UrlServices.Content_Type
+        headers["Accept"] = Constants.UrlServices.Content_Type
+    
         return headers
     }
     
@@ -541,14 +133,25 @@ final class DataSourceManager {
         return headers
     }
     
-    // GET AccessTokenModel
-    static func getAccessTokenModelDB() -> AccessTokenModel? {
-        
-        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: Constants.KeysRealmObject.RealmAccessTokenModel, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
+    static func getBaseModel(by type: CatalogsType) -> BaseResponseModel? {
+        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: type.realmKey, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
             return nil
         }
         
-        guard let model : AccessTokenModel = Mapper<AccessTokenModel>().map(JSONString: dataJsonString) else {
+        guard let model : BaseResponseModel = Mapper<BaseResponseModel>().map(JSONString: dataJsonString) else {
+            return nil
+        }
+        
+        return model
+
+    }
+    
+    static func getGenderModel(by type: TypeItem) -> BaseGenerModel? {
+        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: type.realmKey, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
+            return nil
+        }
+        
+        guard let model : BaseGenerModel = Mapper<BaseGenerModel>().map(JSONString: dataJsonString) else {
             return nil
         }
         
@@ -556,13 +159,149 @@ final class DataSourceManager {
         
     }
     
-    // GET AccesToken String
-    static func getAccessToken() -> String {
-        guard let model = self.getAccessTokenModelDB() else {
-            return ""
+    static func getGenderData(by type: TypeItem) -> [GenerModel] {
+        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: type.realmKey, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
+            return []
         }
         
-        return model.getAccessToken()
+        guard let model : BaseGenerModel = Mapper<BaseGenerModel>().map(JSONString: dataJsonString) else {
+            return []
+        }
+        
+        return model.genres
+        
     }
+    
+    static func getDataFilter() -> [BaseGenerModel] {
+        var result = [BaseGenerModel]()
+        
+        if let seriesFilter = self.getGenderModel(by: TypeItem.serie) {
+            result.append(seriesFilter)
+        }
+        
+        if let movieFilter = self.getGenderModel(by: TypeItem.movie) {
+            result.append(movieFilter)
+        }
+        
+        return result
+    }
+    
+    static func filtersSelect() -> [Int] {
+        let data = self.getDataFilter()
+        
+//        let filter = data.filter { (result) -> Bool in
+//            let select = result.genres.filter{$0.isSelect == true}
+//            result.genres = select
+//            return select.count > 0
+//        }
+        
+        let ids = data.map{$0.genres.filter{$0.isSelect}.compactMap({$0.id})}.flatMap({$0.map{$0}})
+        
+        return ids
+    }
+    
+    static func getDataMain(ids: [Int]? = nil) -> [MainListModel] {
+        var data = [MainListModel]()
+        let catalog = Constants.Catalogs.dataCatalogs
+        
+        for value in catalog {
+            guard let model = self.getBaseModel(by: value) else {
+                continue
+            }
+            
+            if let id = ids {
+                let models = self.getFilterByGender(data: model.results, ids: id)
+                data.append(MainListModel(typeCatalog: value, data: models))
+            }
+            else {
+                let models = self.getMainModel(data: model.results)
+                data.append(MainListModel(typeCatalog: value, data: models))
+            }
+            
+        }
+        
+        return data
+    }
+    
+    static func getMainModel(data: [Any]) -> [DataListModel] {
+        var result = [DataListModel]()
+        for value in data {
+            if let movie: MovieModel = Mapper<MovieModel>().map(JSONObject: value) {
+                if movie.title.isEmpty {
+                    if let tv: TvModel = Mapper<TvModel>().map(JSONObject: value) {
+                        result.append(DataListModel(tv: tv))
+                    }
+                }
+                else {
+                    result.append(DataListModel(movie: movie))
+                }
+            }
+            else if let tv: TvModel = Mapper<TvModel>().map(JSONObject: value) {
+                result.append(DataListModel(tv: tv))
+            }
+        }
+        
+        
+        return result
+    }
+    
+    // get ids Gender
+    static func getFilterByGender(data: [Any], ids: [Int]) -> [DataListModel] {
+        var result = [DataListModel]()
+        for value in data {
+            if let movie: MovieModel = Mapper<MovieModel>().map(JSONObject: value) {
+                if movie.title.isEmpty {
+                    if let tv: TvModel = Mapper<TvModel>().map(JSONObject: value) {
+                        if ids.contains(where: { (value) -> Bool in
+                            return tv.genre_ids.contains(value)
+                        }) {
+                            result.append(DataListModel(tv: tv))
+                        }
+                    }
+                }
+                else {
+                    if ids.contains(where: { (value) -> Bool in
+                        return movie.genre_ids.contains(value)
+                    }) {
+                        result.append(DataListModel(movie: movie))
+                    }
+                }
+            }
+            else if let tv: TvModel = Mapper<TvModel>().map(JSONObject: value) {
+                if ids.contains(where: { (value) -> Bool in
+                    return tv.genre_ids.contains(value)
+                }) {
+                    result.append(DataListModel(tv: tv))
+                }
+            }
+        }
+        
+        
+        return result
+    }
+    
+    // GET AccessTokenModel
+//    static func getAccessTokenModelDB() -> AccessTokenModel? {
+//        
+//        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: Constants.KeysRealmObject.RealmAccessTokenModel, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
+//            return nil
+//        }
+//        
+//        guard let model : AccessTokenModel = Mapper<AccessTokenModel>().map(JSONString: dataJsonString) else {
+//            return nil
+//        }
+//
+//        return model
+//
+//    }
+//    
+//    // GET AccesToken String
+//    static func getAccessToken() -> String {
+//        guard let model = self.getAccessTokenModelDB() else {
+//            return ""
+//        }
+//        
+//        return model.getAccessToken()
+//    }
     
 }

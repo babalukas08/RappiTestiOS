@@ -13,7 +13,7 @@ fileprivate extension Selector {
     static let menuSelector = #selector(BaseViewController.onTapMenu)
     static let backSelector = #selector(BaseViewController.onTapBack)
     static let closeSelector = #selector(BaseViewController.onTapClose)
-    static let bagSelector = #selector(BaseViewController.onTapBag)
+    static let filterSelector = #selector(BaseViewController.onTapFilter)
     static let camaraSelector = #selector(BaseViewController.onTapCamara)
     static let historySelector = #selector(BaseViewController.onTapHistory)
     static let newBagSelector = #selector(BaseViewController.onTapNewBag)
@@ -24,8 +24,8 @@ struct NavBarUtils {
         navBar.setBackgroundImage(UIImage(), for: .default)
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
-        navBar.tintColor = ColorPallete.yellowPH.asColor()
-        navBar.backgroundColor = ColorPallete.black.asColor()
+        navBar.tintColor = ColorPallete.white.asColor()
+        navBar.backgroundColor = UIColor.clear
         navBar.titleTextAttributes = [.foregroundColor: ColorPallete.yellowPH.asColor()]
     }
     
@@ -48,11 +48,11 @@ struct NavBarUtils {
             print("None Nav Bar")
             return nil
         case .Home:
-            let homeImage = self.addImageLogoOnTitle(imageName: "logoAlphaChico")
-            allButtons.titleView = homeImage
+            let bagBtn = UIBarButtonItem(image: modelNav.iconOne, style: .plain, target: controller, action: .filterSelector)
+            allButtons.rightBarButtonItems = [bagBtn]
             return allButtons
         case .HomeIphone:
-            let bagBtn = UIBarButtonItem(image: modelNav.iconOne, style: .plain, target: controller, action: .bagSelector)
+            let bagBtn = UIBarButtonItem(image: modelNav.iconOne, style: .plain, target: controller, action: .filterSelector)
             allButtons.leftBarButtonItems = [bagBtn]
             
             let camaraBtn = UIBarButtonItem(image: modelNav.iconTwo, style: .plain, target: controller, action: .camaraSelector)
@@ -115,7 +115,7 @@ enum StyleHeaderNavigationBar: String {
         case .None:
             return DataNavigationBar()
         case .Home:
-            return DataNavigationBar(showBackBtn: false, showLogoTitle: true, titleNavigation: "", numberIconsRight: 0, iconOne: nil, iconTwo: nil, viewTitle: nil)
+            return DataNavigationBar(showBackBtn: false, showLogoTitle: true, titleNavigation: "", numberIconsRight: 1, iconOne: UIImage(named: "filter"), iconTwo: UIImage(named: "logoMDB"), viewTitle: nil)
         case .HomeIphone:
             return DataNavigationBar(showBackBtn: false, showLogoTitle: true, titleNavigation: "", numberIconsRight: 1, iconOne: UIImage(named: "list"), iconTwo: UIImage(named: "iconCamara"), viewTitle: nil)
         case .ChildView:

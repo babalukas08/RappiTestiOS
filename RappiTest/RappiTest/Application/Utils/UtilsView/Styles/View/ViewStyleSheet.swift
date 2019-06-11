@@ -29,6 +29,8 @@ public enum ViewStyleSheet: String {
     case blackWhiteAlpha50
     case quantityView
     case footerView
+    case filterSelectView
+    case filterUnSelectView
     
     public func getStyle() -> ViewStyle {
         switch self {
@@ -37,6 +39,22 @@ public enum ViewStyleSheet: String {
             var viewStyle = ViewStyle()
             viewStyle.shape = ViewStyle.ViewShape.rect
             viewStyle.backgroundColor = ColorPallete.grayFooter.asColor()
+            return viewStyle
+        case .filterUnSelectView:
+            var viewStyle = ViewStyle()
+            viewStyle.shape = ViewStyle.ViewShape.rect
+            viewStyle.borderColor = ColorPallete.bgBaseView.asColor()
+            viewStyle.borderWidth = 1
+            viewStyle.cornerRadiusStyle = 5
+            viewStyle.backgroundColor = ColorPallete.white.asColor()
+            return viewStyle
+        case .filterSelectView:
+            var viewStyle = ViewStyle()
+            viewStyle.shape = ViewStyle.ViewShape.rect
+            viewStyle.borderColor = ColorPallete.white.asColor()
+            viewStyle.borderWidth = 1
+            viewStyle.cornerRadiusStyle = 5
+            viewStyle.backgroundColor = ColorPallete.bgBaseView.asColor()
             return viewStyle
         case .quantityView:
             var viewStyle = ViewStyle()

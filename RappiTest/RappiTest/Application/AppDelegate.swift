@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Used for scroll textfield when keyboard appear
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        initWindow()
+        
+        if let window = window {
+            let wireFrame = MainViewWireFrame()
+            wireFrame.presentMainViewInterfaceFromWindow(window: window)
+        }
+        
+        UINavigationBar.appearance().barStyle = .blackOpaque
+        
         return true
     }
 
@@ -44,3 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    func initWindow() {
+        let frame = UIScreen.main.bounds
+        window = UIWindow(frame: frame)
+    }
+}

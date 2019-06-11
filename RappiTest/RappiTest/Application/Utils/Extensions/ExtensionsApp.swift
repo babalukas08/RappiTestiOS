@@ -710,7 +710,7 @@ extension StylableImageView {
         if let c = cache, c == true {
             self.af_setImage(withURL: URL(string: url)!, placeholderImage: nil, filter: nil, progress: nil, runImageTransitionIfCached: true) { (response) in
                 if let image = response.result.value {
-                    print("image downloaded: \(image)")
+                    //print("image downloaded: \(image)")
                     self.image = image
                 }
             }
@@ -729,26 +729,14 @@ extension StylableImageView {
     }
 }
 
-//MARK: - NSLayoutConstraint
-
-public extension NSLayoutConstraint {
-    
-    func changeMultiplier(multiplier: CGFloat) -> NSLayoutConstraint {
-        let newConstraint = NSLayoutConstraint(
-            item: firstItem,
-            attribute: firstAttribute,
-            relatedBy: relation,
-            toItem: secondItem,
-            attribute: secondAttribute,
-            multiplier: multiplier,
-            constant: constant)
-        newConstraint.priority = priority
-        
-        NSLayoutConstraint.deactivate([self])
-        NSLayoutConstraint.activate([newConstraint])
-        
-        return newConstraint
+extension UITextField{
+    @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
+        }
     }
-    
 }
 

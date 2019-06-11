@@ -16,17 +16,17 @@ class APIUtils {
     static func createRequestMyAPI(_ path: String, content_Type: String, body: String?, typeRequest: TypeRequest = .POST) -> NSMutableURLRequest {
         //no country code, no dice
         //url building
-        let apiURL = URL(string: Constants.UrlServices.urlBase)!
+        let apiURL = URL(string: Constants.UrlServices.BaseUrl)!
         let mutableURLRequest = NSMutableURLRequest(url: apiURL.appendingPathComponent(path))
         
         //set method and content type
         mutableURLRequest.httpMethod = typeRequest.rawValue
         mutableURLRequest.setValue(content_Type, forHTTPHeaderField: "Content-Type")
         
-        if content_Type == Constants.UrlServices.Content_Type {
-            let oauth = String(format: Constants.UrlServices.Authorization, DataSourceManager.getAccessToken())
-            mutableURLRequest.setValue(oauth, forHTTPHeaderField: "Authorization")
-            mutableURLRequest.setValue(Constants.UrlServices.GENEXUS_AGENT, forHTTPHeaderField: "GENEXUS-AGENT")
+        if content_Type == Constants.UrlServices.BaseUrl {
+//            let oauth = String(format: Constants.UrlServices.Authorization, DataSourceManager.getAccessToken())
+            //mutableURLRequest.setValue("", forHTTPHeaderField: "Authorization")
+            //mutableURLRequest.setValue(Constants.UrlServices.GENEXUS_AGENT, forHTTPHeaderField: "GENEXUS-AGENT")
             mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         }
         

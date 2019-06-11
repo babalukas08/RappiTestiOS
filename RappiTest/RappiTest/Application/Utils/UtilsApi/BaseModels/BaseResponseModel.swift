@@ -10,39 +10,31 @@ import Foundation
 import ObjectMapper
 
 public class BaseResponseModel: Mappable, CustomStringConvertible {
-    var ok :   Int?
-    var message: String?
     
+    var page:           Int = 0
+    var total_results:  Int = 0
+    var total_pages:    Int = 0
+    var results:        [Any] = []
+    // For Error
+    var status_code:    String = ""
+    var status_message: String = ""
+    var success:        Bool   = false
     init() { }
     
-    required public init?(map: Map){
-        
-    }
+    required public init?(map: Map){}
     
     public func mapping(map: Map) {
-        ok     <- map["ok"]
-        message        <- map["message"]
+        page            <- map["page"]
+        total_results   <- map["total_results"]
+        total_pages     <- map["total_pages"]
+        results         <- map["results"]
+        status_code     <- map["status_code"]
+        status_message  <- map["status_message"]
+        success         <- map["success"]
     }
     
     public var description: String {
-        return "BaseResponseModel: {\(String(describing: ok)), \(String(describing: message))}"
-    }
-    
-    public func getCodeResponse() -> Int {
-        guard let code = ok else {
-            return -1
-        }
-        
-        return code
+        return "StandardResponseModel: {page: \(page), title: \(total_results), results: \(results), status_code: \(status_code), status_message: \(status_message), success: \(success)}"
     }
 }
 
-public struct ErrorModel {
-    var errordata: ErrorResponseModel?
-    var errorcode: String?
-    
-    public init (errordata : ErrorResponseModel?, errorcode : String?) {
-        self.errordata = errordata
-        self.errorcode = errorcode
-    }
-}

@@ -22,8 +22,8 @@ class BaseViewController: UIViewController, AlertController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.backgroundColor = ColorPallete.blackBGAlert.asColor()
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.black
+        self.view.backgroundColor = ColorPallete.bgBaseView.asColor()
+        //UIApplication.shared.statusBarView?.backgroundColor = UIColor.black
         
         if let navController = navigationController {
             //self.view.backgroundColor = UIColor.white
@@ -67,7 +67,10 @@ class BaseViewController: UIViewController, AlertController {
     private func getLogo() -> UIView? {
         switch self.typeHeader {
         case .Home, .HomeIphone, .History, .ChildViewCloseIcon:
-            return UIImageView(image: (UIImage(named: "logoPalacioDeHierro")))
+            let logo = UIImageView(image: (UIImage(named: "logoMDB")))
+            logo.contentMode = .scaleAspectFit
+            logo.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+            return logo
         default:
             return nil
         }
@@ -76,7 +79,7 @@ class BaseViewController: UIViewController, AlertController {
     // MARK: methods for navigation buttons, implement in controller you used with override functions
     @objc func onTapMenu() {print("OnTapMenu")}
     @objc func onTapClose() { print("onTapClose")}
-    @objc func onTapBag() { print("onTapBag")}
+    @objc func onTapFilter() { print("onTapFilter")}
     @objc func onTapCamara() { print("onTapCamara")}
     @objc func onTapHistory() { print("onTapHistory")}
     @objc func onTapNewBag() { print("onTapNewBag")}
