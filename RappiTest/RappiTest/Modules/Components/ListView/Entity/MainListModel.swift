@@ -40,7 +40,13 @@ public class DataListModel: Mappable, CustomStringConvertible {
     var id: Int = 0
     var image: String = ""
     var genre_ids : [Int] = []
-
+    var typeItem: TypeItem = .movie
+    
+    var vote_average:  Double       = 0.0
+    var overview: String            = ""
+    var vote_count: Int             = 0
+    var date: String = ""
+    
     init() {}
     
     init(movie: MovieModel) {
@@ -48,6 +54,11 @@ public class DataListModel: Mappable, CustomStringConvertible {
         self.id = movie.id
         self.image = movie.poster_path
         self.genre_ids = movie.genre_ids
+        self.typeItem = .movie
+        self.vote_average = movie.vote_average
+        self.overview = movie.overview
+        self.vote_count = movie.vote_count
+        self.date = movie.release_date
     }
     
     init(tv: TvModel) {
@@ -55,6 +66,11 @@ public class DataListModel: Mappable, CustomStringConvertible {
         self.id = tv.id
         self.image = tv.poster_path
         self.genre_ids = tv.genre_ids
+        self.typeItem = .serie
+        self.vote_average = tv.vote_average
+        self.overview = tv.overview
+        self.vote_count = tv.vote_count
+        self.date = tv.first_air_date
     }
     
     required public init?(map: Map){}
@@ -64,6 +80,12 @@ public class DataListModel: Mappable, CustomStringConvertible {
         id   <- map["id"]
         image <- map["image"]
         genre_ids <- map["genre_ids"]
+        typeItem <- map["typeItem"]
+        vote_average <- map["vote_average"]
+        overview <- map["overview"]
+        vote_count <- map["vote_count"]
+        date <- map["date"]
+        
     }
     
     public var description: String {

@@ -66,10 +66,10 @@ class BaseViewController: UIViewController, AlertController {
     
     private func getLogo() -> UIView? {
         switch self.typeHeader {
-        case .Home, .HomeIphone, .History, .ChildViewCloseIcon:
+        case .Home, .HomeIphone, .ChildView, .ChildViewCloseIcon:
             let logo = UIImageView(image: (UIImage(named: "logoMDB")))
             logo.contentMode = .scaleAspectFit
-            logo.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+            //logo.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
             return logo
         default:
             return nil

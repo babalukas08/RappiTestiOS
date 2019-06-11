@@ -132,6 +132,7 @@ struct Constants {
         // Genders
         static let RealmGendersMovie = "RealmGendersMovie"
         static let RealmGendersSerie = "RealmGendersSerie"
+        static let RealmCurrentVideo = "RealmCurrentVideo"
     }
     
     

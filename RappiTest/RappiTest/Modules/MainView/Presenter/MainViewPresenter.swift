@@ -23,12 +23,12 @@ class MainViewPresenter : MainViewPresenterInterface {
     func getGenders() {
         self.interactor?.getGenders()
     }
-    func sendDetail(by id: String) {
+    func sendDetail(by id: DataListModel) {
         self.interactor?.sendDetail(by: id)
     }
     
-    func pushToDetail(navigation: UINavigationController?) {
-        self.interactor?.pushToDetail(navigation: navigation)
+    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel) {
+        self.interactor?.pushToDetail(navigation: navigation, modelDetail: modelDetail)
     }
     
     

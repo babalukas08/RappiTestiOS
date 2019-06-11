@@ -64,7 +64,7 @@ public enum TypographyStyle: String {
         case .txtBigTitleWhite26:
             let color = ColorPallete.white.asColor()
             let size = SizesPallete.TextSize.txtBase26.rawValue
-            let font = FontPallete.GothamCondensedMedium.asFont(ofSize: CGFloat(size))
+            let font = FontPallete.HelveticaB.asFont(ofSize: CGFloat(size))
             
             var textStyle = TextStyle()
             textStyle.color = color

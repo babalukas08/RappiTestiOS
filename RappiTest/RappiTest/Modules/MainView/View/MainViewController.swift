@@ -25,6 +25,10 @@ class MainViewController: BaseViewController {
        return []
     }()
     
+    lazy var detailModel : DataListModel = {
+       return DataListModel()
+    }()
+    
     lazy var disposeBag : DisposeBag = {
         return DisposeBag()
     }()
@@ -130,6 +134,9 @@ extension MainViewController : MainViewInterface {
                 print("Services: \(serie.data)")
                 self.originalData()
             }
+            else if typeServices == .video {
+                self.presenter?.pushToDetail(navigation: self.navigationController, modelDetail: self.detailModel)
+            }
         default:
             return
         }
@@ -139,7 +146,9 @@ extension MainViewController : MainViewInterface {
 extension MainViewController : ListViewViewDelegate {
     func onTapCell(index: IndexPath) {
         print(index)
-        
+        self.showLoader()
+        self.detailModel = self.mainData[index.section].data[index.row]
+        self.presenter?.sendDetail(by: self.detailModel)
     }
 }
 

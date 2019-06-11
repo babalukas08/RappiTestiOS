@@ -21,9 +21,9 @@ protocol MainViewPresenterInterface : class {
     // Services Methods
     func getCatalogs()
     func getGenders()
-    func sendDetail(by id: String)
+    func sendDetail(by id: DataListModel)
     
     // Navigation Methods
-    func pushToDetail(navigation: UINavigationController?)
+    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel)
     
 }

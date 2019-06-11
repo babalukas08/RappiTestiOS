@@ -21,12 +21,14 @@ class MainViewInteractor : MainViewInteractorInterface {
         self.dataManager?.getGenders()
     }
     
-    func sendDetail(by id: String) {
+    func sendDetail(by id: DataListModel) {
         self.dataManager?.sendDetail(by: id)
     }
     
-    func pushToDetail(navigation: UINavigationController?) {
+    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel) {
         print("Implement wireFrame to push")
+        let detailWireFrame = DetailViewWireframe()
+        detailWireFrame.presentDetailFromViewController(navigation: navigation, modelDetail: modelDetail)
     }
     
     

@@ -16,7 +16,7 @@ enum ServicesType : String {
     case getCatalog
     case detail
     case genders
-    case updateList
+    case video
     case sendEmail
     case getToken
     case newBag

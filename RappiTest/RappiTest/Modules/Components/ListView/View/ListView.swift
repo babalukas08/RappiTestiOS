@@ -212,8 +212,10 @@ extension ListView : UICollectionViewDelegate {
         case .mainView:
             print(self.mainData[indexPath.section].data[indexPath.row].genre_ids)
         default:
-            self.delegate?.onTapCell(index: indexPath)
+            print(indexPath)
         }
+        
+        self.delegate?.onTapCell(index: indexPath)
     }
     
 }

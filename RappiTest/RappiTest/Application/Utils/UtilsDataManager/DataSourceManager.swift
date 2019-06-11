@@ -188,13 +188,6 @@ final class DataSourceManager {
     
     static func filtersSelect() -> [Int] {
         let data = self.getDataFilter()
-        
-//        let filter = data.filter { (result) -> Bool in
-//            let select = result.genres.filter{$0.isSelect == true}
-//            result.genres = select
-//            return select.count > 0
-//        }
-        
         let ids = data.map{$0.genres.filter{$0.isSelect}.compactMap({$0.id})}.flatMap({$0.map{$0}})
         
         return ids
@@ -279,6 +272,21 @@ final class DataSourceManager {
         
         return result
     }
+    
+    // MARK: - Video
+    static func getVideoKey() -> String {
+        guard let dataJsonString = DataSourceManager.requestDataFromCache(realName: Constants.KeysRealmObject.RealmCurrentVideo, cacheManagerName: Constants.KeysRealmObject.CacheManagerRealm) else {
+            return ""
+        }
+        
+        guard let model : VideoResponseModel = Mapper<VideoResponseModel>().map(JSONString: dataJsonString) else {
+            return ""
+        }
+        
+        return model.getFirstVideoKey()
+        
+    }
+
     
     // GET AccessTokenModel
 //    static func getAccessTokenModelDB() -> AccessTokenModel? {

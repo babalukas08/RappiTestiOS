@@ -134,8 +134,36 @@ class MainViewDataManagerAPI : MainViewDataManagerAPIInterface {
     }
     
     
-    func sendDetail(by id: String) {
+    func sendDetail(by id: DataListModel) {
         print(id)
+        let headers = DataSourceManager.getHeaders(true)
+        let url = id.typeItem.pathBaseRequest + "/\(id.id)" + Constants.UrlServices.BasePathVideo
+        manager.request(url, method: .get, parameters: nil, headers: headers).responseObject{ (response: DataResponse<VideoResponseModel>) in
+            switch response.result {
+            case .success(_):
+                let responseData = response.result.value
+                if let data = responseData {
+                    if data.id > 0 {
+                        // save token in Realm for retrive later
+                        let result = DataSourceManager.saveCacheModel(Constants.KeysRealmObject.RealmCurrentVideo, value: data.toJSONString() ?? "")
+                        switch result {
+                        case .success:
+                            self.interactor?.standarResult(.success, typeServices: .video)
+                        case .failure(let message):
+                            self.interactor?.standarResult(.failure(message: message), typeServices: .video)
+                        }
+                    }
+                        // make for error
+                    else {
+                        self.interactor?.standarResult(.failure(message: "Error"), typeServices: .video)
+                    }
+                }
+            case .failure(_):
+                print(response.result.error ?? "")
+                self.interactor?.standarResult(.failure(message: "Error"), typeServices: .video)
+                break
+            }
+        }
     }
     
     

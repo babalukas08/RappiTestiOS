@@ -117,7 +117,7 @@ enum StyleHeaderNavigationBar: String {
         case .Home:
             return DataNavigationBar(showBackBtn: false, showLogoTitle: true, titleNavigation: "", numberIconsRight: 1, iconOne: UIImage(named: "filter"), iconTwo: UIImage(named: "logoMDB"), viewTitle: nil)
         case .HomeIphone:
-            return DataNavigationBar(showBackBtn: false, showLogoTitle: true, titleNavigation: "", numberIconsRight: 1, iconOne: UIImage(named: "list"), iconTwo: UIImage(named: "iconCamara"), viewTitle: nil)
+            return DataNavigationBar(showBackBtn: false, showLogoTitle: true, titleNavigation: "", numberIconsRight: 1, iconOne: nil, iconTwo: nil, viewTitle: nil)
         case .ChildView:
             return DataNavigationBar(showBackBtn: true, showLogoTitle: false, titleNavigation: title ?? "", numberIconsRight: 1, iconOne: UIImage(named: "back"), iconTwo: nil, viewTitle: nil)
         case .ChildViewCloseIcon:

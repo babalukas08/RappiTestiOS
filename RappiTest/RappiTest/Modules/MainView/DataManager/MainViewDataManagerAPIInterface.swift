@@ -18,5 +18,5 @@ protocol MainViewDataManagerAPIInterface : class {
     // Services Methods
     func getCatalogs()
     func getGenders()
-    func sendDetail(by id: String)
+    func sendDetail(by id: DataListModel)
 }
