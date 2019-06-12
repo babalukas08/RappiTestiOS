@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+use_frameworks!
+inhibit_all_warnings!
+
+def basic_pods
+    # Pods for FormulariosElectronicos
+    pod 'Alamofire', '~> 4.5'
+    pod 'ObjectMapper'
+    pod 'AlamofireObjectMapper', '~> 5.2'
+    pod 'RealmSwift'
+    pod 'ObjectMapper+Realm'
+    pod 'AlamofireImage'
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxCocoa',    '~> 4.0'
+    pod 'RxGesture'
+    pod 'IQKeyboardManagerSwift'
+    pod 'SwiftMessages', '~> 5.0'
+    pod 'NVActivityIndicatorView', '4.6.0'
+    pod 'youtube-ios-player-helper', '~> 0.1.4'
+    pod 'Hero'
+    pod 'lottie-ios'
+    end
+
+target 'RappiTest' do
+  basic_pods
+end
+
+target 'RappiTestTests' do
+    inherit! :search_paths
+    # Pods for testing
+    basic_pods
+  end

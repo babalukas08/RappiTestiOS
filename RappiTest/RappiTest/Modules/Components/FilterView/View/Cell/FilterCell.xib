@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterCell" id="gTV-IL-0wX" customClass="FilterCell" customModule="RappiTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rf2-Y5-ren" customClass="StylableView" customModule="RappiTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-wq-ncN" customClass="Heading" customModule="RappiTest" customModuleProvider="target">
+                                <rect key="frame" x="5" y="15" width="190" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneralBlue"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kBc-wq-ncN" firstAttribute="centerY" secondItem="rf2-Y5-ren" secondAttribute="centerY" id="3fh-fE-7ZA"/>
+                            <constraint firstAttribute="trailing" secondItem="kBc-wq-ncN" secondAttribute="trailing" constant="5" id="AMS-Qu-D2s"/>
+                            <constraint firstItem="kBc-wq-ncN" firstAttribute="leading" secondItem="rf2-Y5-ren" secondAttribute="leading" constant="5" id="T7l-B5-eaO"/>
+                            <constraint firstItem="kBc-wq-ncN" firstAttribute="centerX" secondItem="rf2-Y5-ren" secondAttribute="centerX" id="eWU-2Y-O8j"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="filterUnSelectView"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rf2-Y5-ren" secondAttribute="bottom" id="5gs-MK-tQj"/>
+                <constraint firstAttribute="trailing" secondItem="rf2-Y5-ren" secondAttribute="trailing" id="Ls7-9I-nhd"/>
+                <constraint firstItem="rf2-Y5-ren" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="O5j-Dp-VNb"/>
+                <constraint firstItem="rf2-Y5-ren" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="llX-Uv-hbY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="rootView" destination="rf2-Y5-ren" id="9oY-5k-O4j"/>
+                <outlet property="titleLabel" destination="kBc-wq-ncN" id="jDR-gz-3ww"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

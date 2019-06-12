@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridBaseCell" id="gTV-IL-0wX" customClass="GridBaseCell" customModule="RappiTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5U-RD-OBs" customClass="StylableView" customModule="RappiTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7bg-2d-cVC">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8q-OB-4xY">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="234"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="71K-3C-lxG" customClass="StylableImageView" customModule="RappiTest" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="234"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QbY-0I-Rmd">
+                                                <rect key="frame" x="10" y="184" width="180" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mc-7m-QpE" customClass="Heading" customModule="RappiTest" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneral"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0g-nt-akR" customClass="Heading" customModule="RappiTest" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="24.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneralWhiteOpacy"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="71K-3C-lxG" secondAttribute="bottom" id="2ZC-MX-DzV"/>
+                                            <constraint firstItem="71K-3C-lxG" firstAttribute="leading" secondItem="H8q-OB-4xY" secondAttribute="leading" id="4Hz-2Y-sbk"/>
+                                            <constraint firstItem="QbY-0I-Rmd" firstAttribute="leading" secondItem="H8q-OB-4xY" secondAttribute="leading" constant="10" id="APA-GH-6dl"/>
+                                            <constraint firstAttribute="trailing" secondItem="71K-3C-lxG" secondAttribute="trailing" id="Hh5-rK-EP5"/>
+                                            <constraint firstItem="71K-3C-lxG" firstAttribute="top" secondItem="H8q-OB-4xY" secondAttribute="top" id="Mld-4e-UTh"/>
+                                            <constraint firstAttribute="trailing" secondItem="QbY-0I-Rmd" secondAttribute="trailing" constant="10" id="h9q-VW-wSW"/>
+                                            <constraint firstAttribute="bottom" secondItem="QbY-0I-Rmd" secondAttribute="bottom" constant="5" id="v9j-Cv-sXb"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9P-cf-hlO" customClass="Heading" customModule="RappiTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="240" width="200" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="a36-Fv-cIk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneral"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="TitleLabel"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7bg-2d-cVC" secondAttribute="bottom" id="8Fh-3D-pTN"/>
+                            <constraint firstItem="7bg-2d-cVC" firstAttribute="leading" secondItem="e5U-RD-OBs" secondAttribute="leading" id="Ik8-1B-zPU"/>
+                            <constraint firstAttribute="trailing" secondItem="7bg-2d-cVC" secondAttribute="trailing" id="pja-pW-llY"/>
+                            <constraint firstItem="7bg-2d-cVC" firstAttribute="top" secondItem="e5U-RD-OBs" secondAttribute="top" id="qj1-xL-1rf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="transparent"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="e5U-RD-OBs" secondAttribute="bottom" id="8j8-sH-F9D"/>
+                <constraint firstItem="e5U-RD-OBs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QMV-fz-jnt"/>
+                <constraint firstItem="e5U-RD-OBs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YJb-Nl-mJr"/>
+                <constraint firstAttribute="trailing" secondItem="e5U-RD-OBs" secondAttribute="trailing" id="xPX-fj-zVg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="dateIn" destination="b0g-nt-akR" id="xNn-V8-pI9"/>
+                <outlet property="imageProduct" destination="71K-3C-lxG" id="Y8F-qz-QI7"/>
+                <outlet property="titleIn" destination="4Mc-7m-QpE" id="ZRE-Jf-ah7"/>
+                <outlet property="titleOut" destination="q9P-cf-hlO" id="fq5-KA-cg9"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
+        </collectionViewCell>
+    </objects>
+</document>
