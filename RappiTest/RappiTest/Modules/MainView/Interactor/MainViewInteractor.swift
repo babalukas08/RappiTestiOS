@@ -25,10 +25,25 @@ class MainViewInteractor : MainViewInteractorInterface {
         self.dataManager?.sendDetail(by: id)
     }
     
-    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel) {
+    func pushToDetail(view: MainViewController, navigation: UINavigationController?, modelDetail: DataListModel) {
         print("Implement wireFrame to push")
         let detailWireFrame = DetailViewWireframe()
-        detailWireFrame.presentDetailFromViewController(navigation: navigation, modelDetail: modelDetail)
+        detailWireFrame.presentDetailFromViewController(view: view, navigation: navigation, modelDetail: modelDetail)
+    }
+    
+    func pushToMainView(navigation: UINavigationController?) {
+        let mainView = MainViewWireFrame()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        appDelegate.initWindow()
+        
+        guard let window = appDelegate.window else {
+            return
+        }
+        
+        mainView.presentMainViewInterfaceFromWindow(window: window)
     }
     
     

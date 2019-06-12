@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Hero
 
 class MainViewController: BaseViewController {
 
@@ -36,11 +37,17 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setBinding()
+        
+        self.hero.isEnabled = true
+        self.listView.hero.isEnabled = true
+        
+        self.showLoader()
+        self.presenter?.getCatalogs()
+
+        self.listView.hero.modifiers = [.cascade]
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.showLoader()
-        self.presenter?.getCatalogs()
         self.typeHeader = .Home
     }
     
@@ -135,7 +142,7 @@ extension MainViewController : MainViewInterface {
                 self.originalData()
             }
             else if typeServices == .video {
-                self.presenter?.pushToDetail(navigation: self.navigationController, modelDetail: self.detailModel)
+                self.presenter?.pushToDetail(view: self, navigation: self.navigationController, modelDetail: self.detailModel)
             }
         default:
             return

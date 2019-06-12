@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import Hero
 
 class DetailViewWireframe : NSObject {
     
     // MARK: Constants
     
-    let view = DetailViewController()
+    let viewM = DetailViewController()
     let presenter = DetailViewPresenter()
     let interactor = DetailViewInteractor()
     //let dataManager = DetailViewDataManagerAPI()
@@ -27,15 +28,15 @@ class DetailViewWireframe : NSObject {
         super.init()
         
         
-        view.presenter = presenter
-        presenter.view = view
-        interactor.view = view
+        viewM.presenter = presenter
+        presenter.view = viewM
+        interactor.view = viewM
         
         // Set Presenter interfaces
         presenter.interactor = interactor
         presenter.wireframe = self
 
-        navigationController = UINavigationController(rootViewController: view)
+        navigationController = UINavigationController(rootViewController: viewM)
         
     }
     
@@ -52,22 +53,31 @@ class DetailViewWireframe : NSObject {
 
 extension DetailViewWireframe : DetailViewWireframeInterface {
     func presentDetailInterfaceFromWindow(window: UIWindow) {
-        view.presenter = presenter
-        presenter.view = view
+        viewM.presenter = presenter
+        presenter.view = viewM
         presenter.interactor = interactor
         presenter.wireframe = self
-        interactor.view = view
-        navigationController = UINavigationController(rootViewController: view)
+        interactor.view = viewM
+        navigationController = UINavigationController(rootViewController: viewM)
         
         window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
     }
     
-    func presentDetailFromViewController(navigation: UINavigationController?, modelDetail: DataListModel) {
+    func presentDetailFromViewController(view: MainViewController, navigation: UINavigationController?, modelDetail: DataListModel) {
         navigationController = navigation
-        view.modelItem  = modelDetail
-        view.keyVideo = DataSourceManager.getVideoKey()
-        navigation?.pushViewController(view, animated: true)
+        viewM.modelItem  = modelDetail
+        
+        viewM.keyVideo = DataSourceManager.getVideoKey()
+
+        viewM.hero.isEnabled = true
+        viewM.hero.modalAnimationType = .none
+        
+        let cardHeroId = "card\(modelDetail.id)"
+        viewM.cardHeroId = cardHeroId
+        
+        //view.hero.replaceViewController(with: viewM)
+        navigation?.pushViewController(viewM, animated: true)
     }
     
     

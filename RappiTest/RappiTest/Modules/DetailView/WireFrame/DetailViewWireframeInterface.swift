@@ -12,5 +12,5 @@ protocol DetailViewWireframeInterface : class {
     
     // Add here your methods for communication PRESENTER -> WIREFRAME
     func presentDetailInterfaceFromWindow(window: UIWindow)
-    func presentDetailFromViewController(navigation: UINavigationController?, modelDetail: DataListModel)
+    func presentDetailFromViewController(view: MainViewController, navigation: UINavigationController?, modelDetail: DataListModel)
 }

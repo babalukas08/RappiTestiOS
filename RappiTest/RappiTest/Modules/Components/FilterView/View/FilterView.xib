@@ -36,7 +36,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneralHeader"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneral"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qa0-Lb-xSS">
@@ -55,7 +55,7 @@
                         </stackView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WEg-qd-7HA">
                             <rect key="frame" x="0.0" y="40" width="290" height="420"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jeh-Mi-nFj">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -70,7 +70,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="XyY-Vm-W7H" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="66z-IK-Rs8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="XyY-Vm-W7H" secondAttribute="bottom" constant="10" id="VBU-f0-s78"/>

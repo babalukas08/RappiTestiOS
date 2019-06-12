@@ -15,6 +15,7 @@ class DetailViewPresenter : DetailViewPresenterInterface {
     
     var wireframe: DetailViewWireframeInterface?
     
+    
     func pushToBack(navigation: UINavigationController?) {
         self.interactor?.pushToBack(navigation: navigation)
     }

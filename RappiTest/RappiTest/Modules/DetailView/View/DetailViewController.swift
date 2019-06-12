@@ -8,9 +8,11 @@
 
 import UIKit
 import RxSwift
+import Hero
 
 class DetailViewController: BaseViewController {
 
+    @IBOutlet weak var imageBG: StylableImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var modelItem : DataListModel = {
@@ -19,10 +21,26 @@ class DetailViewController: BaseViewController {
     
     var keyVideo = ""
     
+    var cardHeroId = ""
+    
     weak var presenter: DetailViewPresenterInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hero
+        self.hero.isEnabled = true
+        //self.view.hero.id = "detailView"
+        
+        self.collectionView.hero.id = cardHeroId
+        self.collectionView.hero.modifiers = [.useNoSnapshot, .spring(stiffness: 250, damping: 25)]
+        self.imageBG.hero.id = "cardImage/\(self.modelItem.id)"
+        self.imageBG.hero.modifiers = [.useNoSnapshot, .spring(stiffness: 250, damping: 25)]
+        
+        self.imageBG.getImageWithUrl(url: Constants.UrlServices.BasePathImage + self.modelItem.image, roundedImage: false, cache: true)
+        
+        self.view.hero.modifiers = [.source(heroID: cardHeroId), .spring(stiffness: 250, damping: 25)]
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.configView()
@@ -42,6 +60,11 @@ class DetailViewController: BaseViewController {
     private func configSizeCollection() {
         self.collectionView.reloadData()
     }
+    
+//    override func onTapBack() {
+//        //self.hero.unwindToRootViewController()
+//        self.hero.dismissViewController()
+//    }
 
 }
 
@@ -62,7 +85,9 @@ extension DetailViewController: UICollectionViewDataSource {
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "noneCell", for: indexPath)
             }
             
+            cell.titleLabel.hero.id = "titleLabel/\(self.modelItem.id)"
             cell.configure(model: self.modelItem, keyVideo: self.keyVideo)
+            
             return cell
         }
         else {

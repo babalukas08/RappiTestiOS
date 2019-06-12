@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Hero
 
 fileprivate extension Selector {
     static let menuSelector = #selector(BaseViewController.onTapMenu)
@@ -27,6 +28,8 @@ struct NavBarUtils {
         navBar.tintColor = ColorPallete.white.asColor()
         navBar.backgroundColor = UIColor.clear
         navBar.titleTextAttributes = [.foregroundColor: ColorPallete.yellowPH.asColor()]
+        navBar.hero.isEnabled = true
+        navBar.hero.id = "FilterV"
     }
     
     static func whiteNavigationBar(forBar navBar: UINavigationBar) {

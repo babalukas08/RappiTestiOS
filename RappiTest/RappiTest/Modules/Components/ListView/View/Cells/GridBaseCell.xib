@@ -30,6 +30,10 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="71K-3C-lxG" customClass="StylableImageView" customModule="RappiTest" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="234"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QbY-0I-Rmd">
                                                 <rect key="frame" x="10" y="184" width="180" height="45"/>
@@ -76,6 +80,9 @@
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtHeaderGeneral"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="TitleLabel"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -101,6 +108,10 @@
                 <constraint firstAttribute="trailing" secondItem="e5U-RD-OBs" secondAttribute="trailing" id="xPX-fj-zVg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="dateIn" destination="b0g-nt-akR" id="xNn-V8-pI9"/>
                 <outlet property="imageProduct" destination="71K-3C-lxG" id="Y8F-qz-QI7"/>

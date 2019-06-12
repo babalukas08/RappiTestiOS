@@ -84,6 +84,12 @@
                 <constraint firstItem="rY8-mi-LNB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jg1-GP-u68"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="List"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-162" y="-56"/>
         </view>
     </objects>
 </document>

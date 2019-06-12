@@ -24,7 +24,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFo-7x-IYW" customClass="YTPlayerView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="338.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2eB-Cf-mJy">
                                 <rect key="frame" x="5" y="338.5" width="370" height="61.5"/>
@@ -42,6 +42,9 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="txtBigTitleWhite26"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="TitleLabel"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3QU-si-qA1">
@@ -127,6 +130,9 @@
                 <constraint firstAttribute="trailing" secondItem="aos-jX-Uuj" secondAttribute="trailing" id="oYa-43-NXH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="rating" destination="6aO-Hj-Yrf" id="zQM-JK-y9d"/>
                 <outlet property="reviwersCount" destination="CgQ-WS-Dl7" id="rLp-Lo-Q5E"/>

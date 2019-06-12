@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Used for scroll textfield when keyboard appear
         IQKeyboardManager.shared.enable = true
@@ -23,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initWindow()
         
         if let window = window {
-            let wireFrame = MainViewWireFrame()
-            wireFrame.presentMainViewInterfaceFromWindow(window: window)
+            let wireFrame = SplashViewWireframe()
+            wireFrame.presentSplashInterfaceFromWindow(window: window)
         }
         
         UINavigationBar.appearance().barStyle = .blackOpaque

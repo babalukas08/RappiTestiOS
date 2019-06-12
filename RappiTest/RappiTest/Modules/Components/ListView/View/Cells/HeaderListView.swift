@@ -46,17 +46,17 @@ class HeaderListView: UICollectionReusableView {
     func setTitle(data: MainListModel, section: Int) {
         self.setBinding()
         self.title = data.data.count > 0 ? data.titleSection : data.titleSection + " (0)"
-        self.btnSeeAll.text = data.data.count > 0 ? "+ Ver todas" : ""
+        self.btnSeeAll.text = data.data.count > 0 ? "" : ""
         self.section = section
     }
     
     func setTitle(data: BaseGenerModel, section: Int) {
         self.title = data.typeItem.titleSection
         self.section = section
-        self.titleSection.styleName = TypographyStyle.txtHeaderGeneralHeader.rawValue
+        //self.titleSection.styleName = TypographyStyle.txtHeaderGeneralHeader.rawValue
         self.btnSeeAll.isHidden = true
-        self.bottomView.backgroundColor = ColorPallete.bgBaseView.asColor()
-        self.topView.backgroundColor = ColorPallete.bgBaseView.asColor()
+//        self.bottomView.backgroundColor = ColorPallete.white.asColor()
+//        self.topView.backgroundColor = ColorPallete.bgBaseView.asColor()
     }
     
     func setBinding() {

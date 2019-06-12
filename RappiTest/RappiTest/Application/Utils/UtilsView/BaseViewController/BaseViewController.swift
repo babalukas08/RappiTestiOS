@@ -10,6 +10,7 @@ import UIKit
 import SwiftMessages
 import NVActivityIndicatorView
 import RxSwift
+import Hero
 
 class BaseViewController: UIViewController, AlertController {
     
@@ -27,6 +28,7 @@ class BaseViewController: UIViewController, AlertController {
         
         if let navController = navigationController {
             //self.view.backgroundColor = UIColor.white
+            navController.hero.isEnabled = true
             NavBarUtils.clearNavigationBar(forBar: navController.navigationBar)
         }
     }

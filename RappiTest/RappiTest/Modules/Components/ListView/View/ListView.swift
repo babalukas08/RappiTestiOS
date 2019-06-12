@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Hero
 
 public enum TypeListView : String {
     case mainView
@@ -97,6 +98,8 @@ public class ListView: BaseViewNibDesignable {
     
     override func setupView() {
         print("Setup")
+        self.hero.isEnabled = true
+        collectionView.hero.modifiers = [.cascade]
         self.collectionView.backgroundColor = UIColor.clear
         self.collectionView.register(UINib(nibName: "GridBaseCell", bundle: nil), forCellWithReuseIdentifier: "gridBaseCell")
         
@@ -154,6 +157,12 @@ extension ListView: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridBaseCell", for: indexPath as IndexPath) as? GridBaseCell else {
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "noneCell", for: indexPath)
             }
+            
+            cell.hero.isEnabled = true
+            //cell.hero.id = "detailView"
+            cell.hero.modifiers = [.fade, .scale(0.5)]
+            cell.titleOut.hero.id = "titleLabel/\(self.mainData[indexPath.section].data[indexPath.row].id)"
+            cell.imageProduct.hero.id = "cardImage/\(self.mainData[indexPath.section].data[indexPath.row].id)"
             
             cell.configCell(model: self.mainData[indexPath.section].data[indexPath.row], typeListView: self.typeListView)
             

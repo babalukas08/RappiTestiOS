@@ -23,5 +23,6 @@ protocol MainViewInteractorInterface : class {
     func sendDetail(by id: DataListModel)
     
     // Navigation Methods
-    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel)
+    func pushToDetail(view: MainViewController, navigation: UINavigationController?, modelDetail: DataListModel)
+    func pushToMainView(navigation: UINavigationController?)
 }

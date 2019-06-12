@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 public protocol AlertHostControllerDelegate: class {
     func onTapCancelHost()
@@ -43,7 +44,7 @@ public extension AlertController where Self: UIViewController {
     func setConstraints(alert: UIView, containerView: UIView, size: CGSize? = nil, isTop: Bool? = nil) {
         
         let width : CGFloat = size != nil ? size!.width : Constants.devicesWidth.widthDevice - 44
-        let height: CGFloat = size != nil ? size!.height : 450
+        let height: CGFloat = size != nil ? size!.height : 480
         
         
         let widthConstraint = NSLayoutConstraint(

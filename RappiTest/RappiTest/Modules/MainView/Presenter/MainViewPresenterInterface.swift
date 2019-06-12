@@ -15,6 +15,7 @@ protocol MainViewPresenterInterface : class {
     
     var interactor: MainViewInteractorInterface? { get set }
     var wireframe: MainViewWireframeInterface? { get set }
+    var wireframeSplash: SplashViewWireframeInterface? { get set }
     
     
     // Add here your methods for communication VIEW -> PRESENTER
@@ -24,6 +25,8 @@ protocol MainViewPresenterInterface : class {
     func sendDetail(by id: DataListModel)
     
     // Navigation Methods
-    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel)
+    func pushToDetail(view: MainViewController, navigation: UINavigationController?, modelDetail: DataListModel)
+    
+    func pushToMainView(navigation: UINavigationController?)
     
 }

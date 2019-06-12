@@ -21,6 +21,12 @@
 		0E40C78622B051F8000DF9A9 /* DetailViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C78522B051F8000DF9A9 /* DetailViewInteractor.swift */; };
 		0E40C78922B06685000DF9A9 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C78722B06685000DF9A9 /* SummaryCell.swift */; };
 		0E40C78A22B06685000DF9A9 /* SummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E40C78822B06685000DF9A9 /* SummaryCell.xib */; };
+		0E40C78F22B18453000DF9A9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C78D22B18452000DF9A9 /* SplashViewController.swift */; };
+		0E40C79222B185A3000DF9A9 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E40C79122B185A3000DF9A9 /* Splash.storyboard */; };
+		0E43E8BE22B19277008CCA28 /* SplashViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8BD22B19277008CCA28 /* SplashViewInterface.swift */; };
+		0E43E8C122B193AB008CCA28 /* SplashViewWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8C022B193AB008CCA28 /* SplashViewWireframeInterface.swift */; };
+		0E43E8C322B19402008CCA28 /* SplashViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8C222B19402008CCA28 /* SplashViewWireframe.swift */; };
+		0E43E8C522B1973E008CCA28 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E43E8C422B1973E008CCA28 /* SplashViewController.xib */; };
 		0EB6E37522A975DA0062D558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6E37422A975DA0062D558 /* AppDelegate.swift */; };
 		0EB6E37722A975DA0062D558 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6E37622A975DA0062D558 /* ViewController.swift */; };
 		0EB6E37A22A975DA0062D558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB6E37822A975DA0062D558 /* Main.storyboard */; };
@@ -129,6 +135,12 @@
 		0E40C78522B051F8000DF9A9 /* DetailViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewInteractor.swift; sourceTree = "<group>"; };
 		0E40C78722B06685000DF9A9 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		0E40C78822B06685000DF9A9 /* SummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCell.xib; sourceTree = "<group>"; };
+		0E40C78D22B18452000DF9A9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		0E40C79122B185A3000DF9A9 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		0E43E8BD22B19277008CCA28 /* SplashViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewInterface.swift; sourceTree = "<group>"; };
+		0E43E8C022B193AB008CCA28 /* SplashViewWireframeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewWireframeInterface.swift; sourceTree = "<group>"; };
+		0E43E8C222B19402008CCA28 /* SplashViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewWireframe.swift; sourceTree = "<group>"; };
+		0E43E8C422B1973E008CCA28 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		0EB6E37122A975DA0062D558 /* RappiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB6E37422A975DA0062D558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EB6E37622A975DA0062D558 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +319,34 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		0E40C78B22B18440000DF9A9 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				0E43E8BF22B19328008CCA28 /* WireFrame */,
+				0E40C78C22B18440000DF9A9 /* View */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		0E40C78C22B18440000DF9A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E40C78D22B18452000DF9A9 /* SplashViewController.swift */,
+				0E43E8C422B1973E008CCA28 /* SplashViewController.xib */,
+				0E43E8BD22B19277008CCA28 /* SplashViewInterface.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E43E8BF22B19328008CCA28 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				0E43E8C022B193AB008CCA28 /* SplashViewWireframeInterface.swift */,
+				0E43E8C222B19402008CCA28 /* SplashViewWireframe.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
 		0EB6E36822A975DA0062D558 = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +390,7 @@
 		0EB6E39422A976550062D558 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0E40C78B22B18440000DF9A9 /* Splash */,
 				0E40C76722B02C93000DF9A9 /* DetailView */,
 				0EB6E42022A9B9AD0062D558 /* MainView */,
 				0EB6E40822A990AA0062D558 /* Components */,
@@ -383,6 +424,7 @@
 			children = (
 				0EB6E37822A975DA0062D558 /* Main.storyboard */,
 				0EB6E37D22A975DD0062D558 /* LaunchScreen.storyboard */,
+				0E40C79122B185A3000DF9A9 /* Splash.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -831,7 +873,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E43E8C522B1973E008CCA28 /* SplashViewController.xib in Resources */,
 				0EB6E3F422A976BA0062D558 /* Roboto-Regular.ttf in Resources */,
+				0E40C79222B185A3000DF9A9 /* Splash.storyboard in Resources */,
 				0EB6E3F222A976BA0062D558 /* Roboto-Medium.ttf in Resources */,
 				0EB6E37F22A975DD0062D558 /* LaunchScreen.storyboard in Resources */,
 				0E40C78A22B06685000DF9A9 /* SummaryCell.xib in Resources */,
@@ -889,6 +933,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -906,6 +951,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -951,6 +997,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -968,6 +1015,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -1001,6 +1049,7 @@
 				0EB6E40622A976CA0062D558 /* ServicesManager.swift in Sources */,
 				0EB6E44E22AAEE390062D558 /* FilterCell.swift in Sources */,
 				0EB6E3E022A976BA0062D558 /* Styles.swift in Sources */,
+				0E40C78F22B18453000DF9A9 /* SplashViewController.swift in Sources */,
 				0E40C78222B05177000DF9A9 /* DetailViewInteractorInterface.swift in Sources */,
 				0E40C78622B051F8000DF9A9 /* DetailViewInteractor.swift in Sources */,
 				0EB6E3E222A976BA0062D558 /* Fonts.swift in Sources */,
@@ -1035,13 +1084,16 @@
 				0EB6E3F722A976BA0062D558 /* APIRouterUpdate.swift in Sources */,
 				0EB6E41222A997230062D558 /* MovieModel.swift in Sources */,
 				0EB6E3FA22A976BA0062D558 /* APIUtils.swift in Sources */,
+				0E43E8C322B19402008CCA28 /* SplashViewWireframe.swift in Sources */,
 				0EB6E3DE22A976BA0062D558 /* SimpleStylableButton.swift in Sources */,
 				0EB6E3D822A976BA0062D558 /* AlertViewController.swift in Sources */,
+				0E43E8C122B193AB008CCA28 /* SplashViewWireframeInterface.swift in Sources */,
 				0EB6E42922A9BC500062D558 /* MainViewInterface.swift in Sources */,
 				0E40C77722B04FF4000DF9A9 /* DetailViewWireframeInterface.swift in Sources */,
 				0EB6E3F822A976BA0062D558 /* BaseResponseModel.swift in Sources */,
 				0EB6E40322A976BA0062D558 /* RealmCacheEntryModel.swift in Sources */,
 				0E40C77C22B050AB000DF9A9 /* DetailViewPresenterInterface.swift in Sources */,
+				0E43E8BE22B19277008CCA28 /* SplashViewInterface.swift in Sources */,
 				0EB6E43E22A9C0000062D558 /* MainViewDataManagerAPI.swift in Sources */,
 				0EB6E44A22AAE4B50062D558 /* FilterView.swift in Sources */,
 				0EB6E3DF22A976BA0062D558 /* DefaultButton.swift in Sources */,

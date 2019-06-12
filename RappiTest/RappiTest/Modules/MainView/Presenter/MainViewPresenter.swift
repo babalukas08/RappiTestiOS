@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 class MainViewPresenter : MainViewPresenterInterface {
     
+    
     var view: MainViewInterface?
     
     var interactor: MainViewInteractorInterface?
     
     var wireframe: MainViewWireframeInterface?
+    var wireframeSplash: SplashViewWireframeInterface?
+
     
     func getCatalogs() {
         self.interactor?.getCatalogs()
@@ -27,8 +30,12 @@ class MainViewPresenter : MainViewPresenterInterface {
         self.interactor?.sendDetail(by: id)
     }
     
-    func pushToDetail(navigation: UINavigationController?, modelDetail: DataListModel) {
-        self.interactor?.pushToDetail(navigation: navigation, modelDetail: modelDetail)
+    func pushToDetail(view: MainViewController, navigation: UINavigationController?, modelDetail: DataListModel) {
+        self.interactor?.pushToDetail(view: view, navigation: navigation, modelDetail: modelDetail)
+    }
+    
+    func pushToMainView(navigation: UINavigationController?) {
+        self.interactor?.pushToMainView(navigation: navigation)
     }
     
     

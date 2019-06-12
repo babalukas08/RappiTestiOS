@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Hero
 
 public protocol FilterViewDelegate: class {
     func onTapSend(mod: FilterView, code: String)
@@ -44,6 +45,10 @@ public class FilterView: BaseViewNibDesignable {
     }
     
     public override func setupView() {
+        self.hero.isEnabled = true
+        self.hero.id = "FilterV"
+        self.hero.modifiers = [.cascade]
+        self.collectionView.hero.modifiers = [.cascade]
         self.disposeBag = DisposeBag()
         self.configSizeCollection()
         self.collectionView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "filterCell")
@@ -104,7 +109,7 @@ extension FilterView: UICollectionViewDataSource {
         }
         
         cell.configureCell(data: self.data[indexPath.section].genres[indexPath.row])
-        
+        cell.hero.modifiers = [.fade, .scale(0.5)]
         return cell
         
     }
