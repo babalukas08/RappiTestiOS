@@ -145,7 +145,12 @@ extension MainViewController : MainViewInterface {
                 self.presenter?.pushToDetail(view: self, navigation: self.navigationController, modelDetail: self.detailModel)
             }
         default:
-            return
+            if typeServices == .video {
+                self.presenter?.pushToDetail(view: self, navigation: self.navigationController, modelDetail: self.detailModel)
+            }
+            else {
+                return
+            }
         }
     }
 }

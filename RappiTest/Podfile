@@ -19,6 +19,7 @@ def basic_pods
     pod 'NVActivityIndicatorView', '4.6.0'
     pod 'youtube-ios-player-helper', '~> 0.1.4'
     pod 'Hero'
+    pod 'lottie-ios'
     end
 
 target 'RappiTest' do

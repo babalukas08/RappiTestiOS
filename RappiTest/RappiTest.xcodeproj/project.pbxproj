@@ -21,12 +21,15 @@
 		0E40C78622B051F8000DF9A9 /* DetailViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C78522B051F8000DF9A9 /* DetailViewInteractor.swift */; };
 		0E40C78922B06685000DF9A9 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C78722B06685000DF9A9 /* SummaryCell.swift */; };
 		0E40C78A22B06685000DF9A9 /* SummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E40C78822B06685000DF9A9 /* SummaryCell.xib */; };
-		0E40C78F22B18453000DF9A9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E40C78D22B18452000DF9A9 /* SplashViewController.swift */; };
 		0E40C79222B185A3000DF9A9 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E40C79122B185A3000DF9A9 /* Splash.storyboard */; };
 		0E43E8BE22B19277008CCA28 /* SplashViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8BD22B19277008CCA28 /* SplashViewInterface.swift */; };
 		0E43E8C122B193AB008CCA28 /* SplashViewWireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8C022B193AB008CCA28 /* SplashViewWireframeInterface.swift */; };
 		0E43E8C322B19402008CCA28 /* SplashViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8C222B19402008CCA28 /* SplashViewWireframe.swift */; };
-		0E43E8C522B1973E008CCA28 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E43E8C422B1973E008CCA28 /* SplashViewController.xib */; };
+		0E43E8C822B19C6C008CCA28 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43E8C622B19C6C008CCA28 /* SplashViewController.swift */; };
+		0E43E8C922B19C6C008CCA28 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E43E8C722B19C6C008CCA28 /* SplashViewController.xib */; };
+		0E43E8D122B1A27F008CCA28 /* week.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E43E8CF22B1A27F008CCA28 /* week.json */; };
+		0E43E8D222B1A27F008CCA28 /* penguin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E43E8D022B1A27F008CCA28 /* penguin.json */; };
+		0E43E8D422B1AAC0008CCA28 /* imageLoader.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E43E8D322B1AAC0008CCA28 /* imageLoader.json */; };
 		0EB6E37522A975DA0062D558 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6E37422A975DA0062D558 /* AppDelegate.swift */; };
 		0EB6E37722A975DA0062D558 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB6E37622A975DA0062D558 /* ViewController.swift */; };
 		0EB6E37A22A975DA0062D558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB6E37822A975DA0062D558 /* Main.storyboard */; };
@@ -135,12 +138,15 @@
 		0E40C78522B051F8000DF9A9 /* DetailViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewInteractor.swift; sourceTree = "<group>"; };
 		0E40C78722B06685000DF9A9 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		0E40C78822B06685000DF9A9 /* SummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCell.xib; sourceTree = "<group>"; };
-		0E40C78D22B18452000DF9A9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		0E40C79122B185A3000DF9A9 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		0E43E8BD22B19277008CCA28 /* SplashViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewInterface.swift; sourceTree = "<group>"; };
 		0E43E8C022B193AB008CCA28 /* SplashViewWireframeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewWireframeInterface.swift; sourceTree = "<group>"; };
 		0E43E8C222B19402008CCA28 /* SplashViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewWireframe.swift; sourceTree = "<group>"; };
-		0E43E8C422B1973E008CCA28 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		0E43E8C622B19C6C008CCA28 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		0E43E8C722B19C6C008CCA28 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		0E43E8CF22B1A27F008CCA28 /* week.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = week.json; sourceTree = "<group>"; };
+		0E43E8D022B1A27F008CCA28 /* penguin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = penguin.json; sourceTree = "<group>"; };
+		0E43E8D322B1AAC0008CCA28 /* imageLoader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imageLoader.json; sourceTree = "<group>"; };
 		0EB6E37122A975DA0062D558 /* RappiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB6E37422A975DA0062D558 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EB6E37622A975DA0062D558 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -331,9 +337,9 @@
 		0E40C78C22B18440000DF9A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0E40C78D22B18452000DF9A9 /* SplashViewController.swift */,
-				0E43E8C422B1973E008CCA28 /* SplashViewController.xib */,
 				0E43E8BD22B19277008CCA28 /* SplashViewInterface.swift */,
+				0E43E8C622B19C6C008CCA28 /* SplashViewController.swift */,
+				0E43E8C722B19C6C008CCA28 /* SplashViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,6 +351,16 @@
 				0E43E8C222B19402008CCA28 /* SplashViewWireframe.swift */,
 			);
 			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		0E43E8CA22B19CEC008CCA28 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				0E43E8D022B1A27F008CCA28 /* penguin.json */,
+				0E43E8CF22B1A27F008CCA28 /* week.json */,
+				0E43E8D322B1AAC0008CCA28 /* imageLoader.json */,
+			);
+			path = Lotties;
 			sourceTree = "<group>";
 		};
 		0EB6E36822A975DA0062D558 = {
@@ -432,6 +448,7 @@
 		0EB6E39822A976BA0062D558 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0E43E8CA22B19CEC008CCA28 /* Lotties */,
 				0EB6E39922A976BA0062D558 /* UtilsAlerts */,
 				0EB6E39B22A976BA0062D558 /* UtilsView */,
 				0EB6E3C422A976BA0062D558 /* UtilsApi */,
@@ -873,14 +890,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E43E8C522B1973E008CCA28 /* SplashViewController.xib in Resources */,
+				0E43E8C922B19C6C008CCA28 /* SplashViewController.xib in Resources */,
 				0EB6E3F422A976BA0062D558 /* Roboto-Regular.ttf in Resources */,
+				0E43E8D422B1AAC0008CCA28 /* imageLoader.json in Resources */,
 				0E40C79222B185A3000DF9A9 /* Splash.storyboard in Resources */,
 				0EB6E3F222A976BA0062D558 /* Roboto-Medium.ttf in Resources */,
 				0EB6E37F22A975DD0062D558 /* LaunchScreen.storyboard in Resources */,
 				0E40C78A22B06685000DF9A9 /* SummaryCell.xib in Resources */,
+				0E43E8D122B1A27F008CCA28 /* week.json in Resources */,
 				0EB6E3F622A976BA0062D558 /* GothamCond-Book.ttf in Resources */,
 				0EB6E3F522A976BA0062D558 /* GothamCond-Medium.ttf in Resources */,
+				0E43E8D222B1A27F008CCA28 /* penguin.json in Resources */,
 				0EB6E3F322A976BA0062D558 /* Roboto-Light.ttf in Resources */,
 				0EB6E41922A9A3AF0062D558 /* GridBaseCell.xib in Resources */,
 				0E40C77022B02ED2000DF9A9 /* VideoViewCell.xib in Resources */,
@@ -944,6 +964,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -962,6 +983,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1008,6 +1030,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1026,6 +1049,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1049,7 +1073,6 @@
 				0EB6E40622A976CA0062D558 /* ServicesManager.swift in Sources */,
 				0EB6E44E22AAEE390062D558 /* FilterCell.swift in Sources */,
 				0EB6E3E022A976BA0062D558 /* Styles.swift in Sources */,
-				0E40C78F22B18453000DF9A9 /* SplashViewController.swift in Sources */,
 				0E40C78222B05177000DF9A9 /* DetailViewInteractorInterface.swift in Sources */,
 				0E40C78622B051F8000DF9A9 /* DetailViewInteractor.swift in Sources */,
 				0EB6E3E222A976BA0062D558 /* Fonts.swift in Sources */,
@@ -1086,6 +1109,7 @@
 				0EB6E3FA22A976BA0062D558 /* APIUtils.swift in Sources */,
 				0E43E8C322B19402008CCA28 /* SplashViewWireframe.swift in Sources */,
 				0EB6E3DE22A976BA0062D558 /* SimpleStylableButton.swift in Sources */,
+				0E43E8C822B19C6C008CCA28 /* SplashViewController.swift in Sources */,
 				0EB6E3D822A976BA0062D558 /* AlertViewController.swift in Sources */,
 				0E43E8C122B193AB008CCA28 /* SplashViewWireframeInterface.swift in Sources */,
 				0EB6E42922A9BC500062D558 /* MainViewInterface.swift in Sources */,

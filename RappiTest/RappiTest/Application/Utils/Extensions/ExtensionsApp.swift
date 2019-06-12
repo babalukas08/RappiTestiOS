@@ -11,6 +11,7 @@ import UIKit
 import Alamofire
 import CoreImage
 import AVFoundation
+import Lottie
 
 //MARK: - String
 extension String {
@@ -720,12 +721,13 @@ extension StylableImageView {
     
     func getImageWithUrl(url: String, roundedImage: Bool, cache: Bool? = nil) {
         self.styleName = !roundedImage ? "transparent" : "roundTransparent"
-        
+        self.showImageLoader(isStop: false)
         if let c = cache, c == true {
-            self.af_setImage(withURL: URL(string: url)!, placeholderImage: nil, filter: nil, progress: nil, runImageTransitionIfCached: true) { (response) in
+            self.af_setImage(withURL: URL(string: url)!, placeholderImage: nil, filter: nil, progress: nil, runImageTransitionIfCached: false) { (response) in
                 if let image = response.result.value {
                     //print("image downloaded: \(image)")
                     self.image = image
+                    self.showImageLoader(isStop: true)
                 }
             }
         }
@@ -734,11 +736,35 @@ extension StylableImageView {
                 if let image = response.result.value {
                     print("image downloaded: \(image)")
                     self.image = image
+                    self.showImageLoader(isStop: true)
                 }
             }
         }
+    }
+    
+    func showImageLoader(isStop: Bool) {
         
+        if isStop {
+            self.removeSubViews()
+            return
+        }
         
+        let starAnimationView = AnimationView(name: "penguin")
+        starAnimationView.loopMode = .loop
+        starAnimationView.animationSpeed = 1
+        starAnimationView.contentMode = .scaleAspectFit
+        
+        self.addSubview(starAnimationView)
+        starAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        starAnimationView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant:0).isActive = true
+        starAnimationView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant:0).isActive = true
+        starAnimationView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        starAnimationView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        //starAnimationView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        starAnimationView.clipsToBounds = true
+        
+        starAnimationView.play() { (finished) in
+        }
         
     }
 }
